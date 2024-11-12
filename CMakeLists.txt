@@ -34,7 +34,7 @@ install(
         DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY urdf launch
+install(DIRECTORY urdf launch cfg
         DESTINATION share/${PROJECT_NAME}/)
 
 ament_auto_package(INSTALL_TO_SHARE cfg launch urdf)

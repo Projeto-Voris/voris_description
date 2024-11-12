@@ -32,6 +32,16 @@ def generate_launch_description():
             parameters=[{'robot_description': open(urdf_file).read()}]
         ),
 
+        Node(
+            package='voris_description',
+            executable='odom2tf.py',
+            name='odom2tf',
+            output='screen',
+            remappings=[
+                ('/odometry', '/model/bluerov2_heavy/odometry')
+            ]
+        ),
+
         ExecuteProcess(
             cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
                  '--frame-id', 'map',
@@ -39,14 +49,11 @@ def generate_launch_description():
             output='screen',
         ),
 
-        Node(
-            package='voris_description',
-            executable='odom2tf.py',
-            name='odom2tf',
+        ExecuteProcess(
+            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+                 '--frame-id', 'map',
+                 '--child-frame-id', 'odom'],
             output='screen',
-            remappings=[
-                ('/odometry', '/model/bluerov2/odometry')
-            ]
-        )
+        ),
 
     ])

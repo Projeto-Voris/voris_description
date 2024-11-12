@@ -2,9 +2,14 @@
 
 import rclpy
 from rclpy.node import Node
+from rclpy.duration import Duration
+from rclpy.time import Time
 import tf2_ros
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped
+
+# Initialize transform expiration duration (e.g., 0.0 seconds)
+transform_expiration = Duration(seconds=0.0)  # 0 seconds (equivalent to 0 ms)
 
 class Odom2TF(Node):
     def __init__(self):
@@ -15,9 +20,12 @@ class Odom2TF(Node):
     def handle_odometry(self, msg):
         # Create the transform message
         t = TransformStamped()
-        t.header.stamp = msg.header.stamp
+        
+        # Assign the new timestamp to the transform header
+        t.header.stamp = self.get_clock().now().to_msg()
+
         t.header.frame_id = "map"    # Parent frame (global)
-        t.child_frame_id = "base_link" # Child frame (robot base)
+        t.child_frame_id = "base_link"  # Child frame (robot base)
 
         # Set the position from the odometry message
         t.transform.translation.x = msg.pose.pose.position.x
@@ -33,7 +41,7 @@ class Odom2TF(Node):
 def odometry_to_tf(args=None):
     rclpy.init(args=args)
 
-    odom2tf_sub = Odom2TF()  # Corrected to create an instance of the Odom2TF class
+    odom2tf_sub = Odom2TF()  # Create an instance of the Odom2TF class
     rclpy.spin(odom2tf_sub)
 
     # Destroy the node explicitly
@@ -42,3 +50,4 @@ def odometry_to_tf(args=None):
 
 if __name__ == '__main__':
     odometry_to_tf()
+
