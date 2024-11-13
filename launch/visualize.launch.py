@@ -11,7 +11,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     voris_description_dir = get_package_share_directory('voris_description')
     urdf_file = os.path.join(voris_description_dir, 'urdf','bluerov2',
-                             'simple_bluerov2_heavy.urdf')
+                             'test.urdf')
 
 
     return LaunchDescription([
@@ -41,6 +41,30 @@ def generate_launch_description():
                 ('/odometry', '/model/bluerov2_heavy/odometry')
             ]
         ),
+        # Publish joint position from thrusters
+        Node(
+            package='ros_gz_bridge',
+            executable='parameter_bridge',
+            name='gz_bridge',
+            output='screen',
+            arguments=[
+                '/model/bluerov2_heavy/joint/thruster1_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster2_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster3_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster4_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster5_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster6_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster7_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double',
+                '/model/bluerov2_heavy/joint/thruster8_joint/ang_vel@std_msgs/msg/Float64@gz.msgs.Double'
+            ]
+        ),
+
+        # Node(
+        #     package='voris_description',
+        #     executable='joint_state_publisher.py',
+        #     name='gz_joint_state',
+        #     output='screen'
+        # ),
 
         ExecuteProcess(
             cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',

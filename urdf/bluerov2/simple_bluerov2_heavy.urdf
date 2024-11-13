@@ -1,13 +1,27 @@
 <?xml version="1.0"?>
 <robot name="bluerov2_heavy">
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+
 
   <!-- Base Link -->
   <link name="base_link">
     <visual>
       <geometry>
-        <box size="0.2 0.2 0.2"/>
+        <box size="0.05 0.05 0.1"/>
       </geometry>
-<!--      <material name="grey"/>-->
+      <material name="black"/>
 <!--      <color rgba="0.5 0.5 0.5 1"/>-->
     </visual>
   </link>
@@ -18,7 +32,7 @@
       <geometry>
         <cylinder radius="0.05" length="0.05"/>
       </geometry>
-<!--      <material name="blue"/>-->
+      <material name="blue"/>
 <!--      <color rgba="0 0 1 1"/>-->
     </visual>
   </link>
@@ -36,7 +50,7 @@
       <geometry>
         <cylinder radius="0.05" length="0.05"/>
       </geometry>
-<!--      <material name="blue"/>-->
+      <material name="blue"/>
 <!--      <color rgba="0 0 1 1"/>-->
     </visual>
   </link>
@@ -47,4 +61,23 @@
     <child link="right_camera_link"/>
     <origin xyz="0.19 -0.075 0.201" rpy="-1.57 0 -1.57"/>
   </joint>
+
+  <link name="thruster1_link">
+    <visual>
+<!--      <origin xyz="0 0 0" rpy="1.57 0 0"/>-->
+      <geometry>
+        <cylinder radius="0.05" length="0.02"/>
+      </geometry>
+      <!--      <material name="blue"/>-->
+      <!--      <color rgba="0 0 1 1"/>-->
+    </visual>
+  </link>
+
+  <joint name="thruster1_joint" type="continuous">
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="thruster1_link"/>
+    <origin xyz="0.138 -0.098 -0.0137" rpy="-1.570 1.570 -0.785"/>
+  </joint>
+
 </robot>
