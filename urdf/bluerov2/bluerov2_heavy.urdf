@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<robot name="bluerov2_heavy">
+
+  <!-- Define some properties -->
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.5707"/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/bluerov2_heavy_skid.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Link 1 -->
+  <link name="left_camera_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.05"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <!-- Joint connecting base_link to link_1 -->
+  <joint name="left_camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_camera_link"/>
+    <origin xyz="0.19 0.075 0.201" rpy="-1.5707 0 -1.5707"/>
+  </joint>
+
+  <!-- Link 2 -->
+  <link name="right_camera_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.02" length="0.05"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <!-- Joint connecting link_1 to link_2 -->
+  <joint name="right_camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_camera_link"/>
+    <origin xyz="0.19 -0.075 0.201" rpy="-1.5707 0 -1.5707"/>
+  </joint>
+
+  <link name="thruster1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-ccw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-ccw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster3_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-cw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster4_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-cw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster5_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-ccw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster6_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-cw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster7_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-cw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="thruster8_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 0 "/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/t200-ccw-prop.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="thruster1_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster1_link"/>
+    <origin xyz="0.138 -0.098 -0.0137" rpy="-1.5707 1.5707 -0.785"/>
+  </joint>
+
+  <joint name="thruster2_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster2_link"/>
+    <origin xyz="0.138 0.098 -0.0137" rpy="-1.57070 1.57070 -2.3562"/>
+  </joint>
+
+  <joint name="thruster3_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster3_link"/>
+    <origin xyz="-0.1465 -0.1065 -0.0137" rpy="-1.57070 1.57070 0.785"/>
+  </joint>
+
+  <joint name="thruster4_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster4_link"/>
+    <origin xyz="-0.1465 0.1065 -0.0137" rpy="-1.57070 1.57070 2.3562"/>
+  </joint>
+
+  <joint name="thruster5_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster5_link"/>
+    <origin xyz="0.120 -0.218 0.048" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="thruster6_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster6_link"/>
+    <origin xyz="0.120 0.218 0.048" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="thruster7_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster7_link"/>
+    <origin xyz="-0.120 -0.218 0.048" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="thruster8_joint" type="continuous">
+    <axis xyz="0 0 -1"/>
+    <parent link="base_link"/>
+    <child link="thruster8_link"/>
+    <origin xyz="-0.120 0.218 0.048" rpy="0 0 0"/>
+  </joint>
+
+</robot>

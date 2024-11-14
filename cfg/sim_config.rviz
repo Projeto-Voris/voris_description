@@ -1,0 +1,264 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 70
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.5
+    Tree Height: 385
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz_default_plugins/Axes
+      Enabled: true
+      Length: 0.30000001192092896
+      Name: Axes
+      Radius: 0.019999999552965164
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster4_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster5_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster6_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster7_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thruster8_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
+      Name: RobotModel
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: true
+        left_camera_link:
+          Value: true
+        map:
+          Value: false
+        odom:
+          Value: false
+        right_camera_link:
+          Value: true
+        thruster1_link:
+          Value: false
+        thruster2_link:
+          Value: false
+        thruster3_link:
+          Value: false
+        thruster4_link:
+          Value: false
+        thruster5_link:
+          Value: false
+        thruster6_link:
+          Value: false
+        thruster7_link:
+          Value: false
+        thruster8_link:
+          Value: false
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        map:
+          base_link:
+            left_camera_link:
+              {}
+            right_camera_link:
+              {}
+            thruster1_link:
+              {}
+            thruster2_link:
+              {}
+            thruster3_link:
+              {}
+            thruster4_link:
+              {}
+            thruster5_link:
+              {}
+            thruster6_link:
+              {}
+            thruster7_link:
+              {}
+            thruster8_link:
+              {}
+          odom:
+            {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: SM2/left
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /stereo_left
+      Value: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: SM2/right
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /stereo_right
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 12.603829383850098
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0.5486195087432861
+        Y: -2.330111265182495
+        Z: -0.614047646522522
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.8550001978874207
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 3.524994373321533
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1043
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd000000010000000000000192000003b9fc0200000004fb000000100044006900730070006c006100790073010000003d00000204000000c900fffffffb0000000a005600690065007700730000000165000000de000000a400fffffffb000000100053004d0032002f006c0065006600740100000247000000cd0000002800fffffffb000000120053004d0032002f00720069006700680074010000031a000000dc0000002800ffffff00000822000003b900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  SM2/left:
+    collapsed: false
+  SM2/right:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 2490
+  X: 70
+  Y: 0

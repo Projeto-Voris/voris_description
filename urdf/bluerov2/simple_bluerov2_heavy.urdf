@@ -1,14 +1,30 @@
 <?xml version="1.0"?>
 <robot name="bluerov2_heavy">
 
+  <!-- Define some properties -->
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+
+
   <!-- Base Link -->
   <link name="base_link">
     <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.5707"/>
       <geometry>
-        <box size="0.2 0.2 0.2"/>
+        <mesh filename="package://voris_description/urdf/meshes/bluerov2_heavy_skid.dae" scale="1 1 1"/>
       </geometry>
-<!--      <material name="grey"/>-->
-<!--      <color rgba="0.5 0.5 0.5 1"/>-->
     </visual>
   </link>
 
@@ -16,10 +32,9 @@
   <link name="left_camera_link">
     <visual>
       <geometry>
-        <cylinder radius="0.05" length="0.05"/>
+        <cylinder radius="0.01" length="0.02"/>
       </geometry>
-<!--      <material name="blue"/>-->
-<!--      <color rgba="0 0 1 1"/>-->
+      <material name="black"/>
     </visual>
   </link>
 
@@ -27,17 +42,16 @@
   <joint name="left_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="left_camera_link"/>
-    <origin xyz="0.19 0.075 0.201" rpy="-1.57 0 -1.57"/>
+    <origin xyz="0.19 0.075 0.201" rpy="-1.5707 0 -1.5707"/>
   </joint>
 
   <!-- Link 2 -->
   <link name="right_camera_link">
     <visual>
       <geometry>
-        <cylinder radius="0.05" length="0.05"/>
+        <cylinder radius="0.01" length="0.02"/>
       </geometry>
-<!--      <material name="blue"/>-->
-<!--      <color rgba="0 0 1 1"/>-->
+      <material name="black"/>
     </visual>
   </link>
 
@@ -45,6 +59,7 @@
   <joint name="right_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="right_camera_link"/>
-    <origin xyz="0.19 -0.075 0.201" rpy="-1.57 0 -1.57"/>
+    <origin xyz="0.19 -0.075 0.201" rpy="-1.5707 0 -1.5707"/>
   </joint>
+
 </robot>
