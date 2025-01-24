@@ -49,15 +49,15 @@ def generate_launch_description():
             condition=UnlessCondition(LaunchConfiguration('simple_urdf')),
         ),
 
-        Node(
-            package='voris_description',
-            executable='odom2tf.py',
-            name='odom2tf',
-            output='screen',
-            remappings=[
-                ('/odometry', '/model/bluerov2_heavy/odometry')
-            ]
-        ),
+        # Node(
+        #     package='voris_description',
+        #     executable='odom2tf.py',
+        #     name='odom2tf',
+        #     output='screen',
+        #     remappings=[
+        #         ('/odometry', '/model/bluerov2_heavy/odometry')
+        #     ]
+        # ),
         Node(
             package='voris_description',
             executable='joint_state_publisher.py',

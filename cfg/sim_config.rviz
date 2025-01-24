@@ -3,7 +3,8 @@ Panels:
     Help Height: 70
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /Pose - SLAM1
       Splitter Ratio: 0.5
     Tree Height: 385
   - Class: rviz_common/Views
@@ -72,46 +73,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        thruster1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster4_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster5_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster6_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster7_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        thruster8_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -127,30 +88,22 @@ Visualization Manager:
         All Enabled: false
         base_link:
           Value: true
+        base_link_frd:
+          Value: true
         left_camera_link:
           Value: true
         map:
           Value: false
+        map_ned:
+          Value: true
         odom:
           Value: false
+        odom_ned:
+          Value: true
+        orbslam3:
+          Value: true
         right_camera_link:
           Value: true
-        thruster1_link:
-          Value: false
-        thruster2_link:
-          Value: false
-        thruster3_link:
-          Value: false
-        thruster4_link:
-          Value: false
-        thruster5_link:
-          Value: false
-        thruster6_link:
-          Value: false
-        thruster7_link:
-          Value: false
-        thruster8_link:
-          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
@@ -159,27 +112,18 @@ Visualization Manager:
       Tree:
         map:
           base_link:
+            base_link_frd:
+              {}
             left_camera_link:
               {}
             right_camera_link:
               {}
-            thruster1_link:
-              {}
-            thruster2_link:
-              {}
-            thruster3_link:
-              {}
-            thruster4_link:
-              {}
-            thruster5_link:
-              {}
-            thruster6_link:
-              {}
-            thruster7_link:
-              {}
-            thruster8_link:
-              {}
+          map_ned:
+            {}
           odom:
+            odom_ned:
+              {}
+          orbslam3:
             {}
       Update Interval: 0
       Value: true
@@ -211,6 +155,60 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /stereo_right
       Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz_default_plugins/Pose
+      Color: 46; 194; 126
+      Enabled: true
+      Head Length: 0.15000000596046448
+      Head Radius: 0.10000000149011612
+      Name: Pose - SLAM
+      Shaft Length: 0.5
+      Shaft Radius: 0.02500000037252903
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /orbslam3/pose
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 0.5473427176475525
+        Min Value: -4.451297283172607
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: SLAM
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.029999999329447746
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /orbslam3/pointcloud
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -226,25 +224,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 12.603829383850098
+      Distance: 7.759887218475342
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.5486195087432861
-        Y: -2.330111265182495
-        Z: -0.614047646522522
+        X: 0.6678014397621155
+        Y: 0.3830430805683136
+        Z: 0.08392984420061111
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8550001978874207
+      Pitch: 0.5000004172325134
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.524994373321533
+      Yaw: 3.569995641708374
     Saved: ~
 Window Geometry:
   Displays:
@@ -252,13 +250,13 @@ Window Geometry:
   Height: 1043
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000192000003b9fc0200000004fb000000100044006900730070006c006100790073010000003d00000204000000c900fffffffb0000000a005600690065007700730000000165000000de000000a400fffffffb000000100053004d0032002f006c0065006600740100000247000000cd0000002800fffffffb000000120053004d0032002f00720069006700680074010000031a000000dc0000002800ffffff00000822000003b900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000010000000000000192000003b9fc0200000004fb000000100044006900730070006c006100790073010000003d00000204000000c900fffffffb0000000a005600690065007700730000000165000000de000000a400fffffffb000000100053004d0032002f006c0065006600740100000247000000cd0000002800fffffffb000000120053004d0032002f00720069006700680074010000031a000000dc0000002800ffffff00000345000003b900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   SM2/left:
     collapsed: false
   SM2/right:
     collapsed: false
   Views:
     collapsed: false
-  Width: 2490
-  X: 70
+  Width: 1245
+  X: 1315
   Y: 0
