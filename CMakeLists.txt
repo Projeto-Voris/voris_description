@@ -22,9 +22,9 @@ include_directories(include)
 
 
 
-add_executable(vision_odom src/vision_odom.cpp)
-target_include_directories(vision_odom PRIVATE include)
-ament_target_dependencies(vision_odom rclcpp tf2_ros geometry_msgs nav_msgs)
+# add_executable(vision_odom src/vision_odom.cpp)
+# target_include_directories(vision_odom PRIVATE include)
+# ament_target_dependencies(vision_odom rclcpp tf2_ros geometry_msgs nav_msgs)
 
 if (BUILD_TESTING)
     find_package(ament_lint_auto REQUIRED)
@@ -44,10 +44,10 @@ install(
         scripts/joint_state_publisher.py
         DESTINATION lib/${PROJECT_NAME}
 )
-install(TARGETS
-        vision_odom
-        DESTINATION lib/${PROJECT_NAME}
-)
+# install(TARGETS
+#         vision_odom
+#         DESTINATION lib/${PROJECT_NAME}
+# )
 
 install(DIRECTORY urdf launch cfg
         DESTINATION share/${PROJECT_NAME}/)
