@@ -30,7 +30,8 @@ def generate_launch_description():
             name='rviz2',
             output='screen',
             arguments=['-d', PathJoinSubstitution([
-                FindPackageShare('voris_description'), 'cfg', LaunchConfiguration('rvizconfig')])]
+                FindPackageShare('voris_description'), 'cfg', LaunchConfiguration('rvizconfig')])],
+            condition=IfCondition(LaunchConfiguration('gui'))
         ),
 
         Node(
@@ -91,18 +92,18 @@ def generate_launch_description():
         #     output='screen'
         # ),
 
-        ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
-                 '--frame-id', 'map',
-                 '--child-frame-id', 'base_link'],
-            output='screen',
-        ),
+        # ExecuteProcess(
+        #     cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+        #          '--frame-id', 'map',
+        #          '--child-frame-id', 'base_link'],
+        #     output='screen',
+        # ),
 
-        ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
-                 '--frame-id', 'map',
-                 '--child-frame-id', 'odom'],
-            output='screen',
-        ),
+        # ExecuteProcess(
+        #     cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+        #          '--frame-id', 'map',
+        #          '--child-frame-id', 'odom'],
+        #     output='screen',
+        # ),
 
     ])

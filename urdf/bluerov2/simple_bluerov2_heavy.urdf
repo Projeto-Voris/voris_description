@@ -77,7 +77,7 @@
   <link name="right_camera_frame">
   </link>
 
-  <!-- Joint connecting left_camera_link and left_camera_frame-->
+  <!-- Joint connecting right_camera_link and right_camera_frame-->
   <joint name="right_link_to_frame_joint" type="fixed">
     <parent link="right_camera_link"/>
     <child link="right_camera_frame"/>
