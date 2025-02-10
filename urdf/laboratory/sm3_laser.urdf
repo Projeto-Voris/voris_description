@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<robot name="bluerov2_heavy">
-
+<robot name="sm3_laser">
   <!-- Define some properties -->
 
   <material name="blue">
@@ -22,9 +21,6 @@
   <link name="base_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 1.5707"/>
-      <geometry>
-        <mesh filename="package://voris_description/urdf/meshes/bluerov2_heavy_skid.dae" scale="1 1 1"/>
-      </geometry>
     </visual>
   </link>
 
@@ -42,7 +38,7 @@
   <joint name="left_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="left_camera_link"/>
-    <origin xyz="0.048 0.153 0" rpy="-1.5707 0.1760 -1.5707"/>
+    <origin xyz="0 0.153 0.0" rpy="-1.5707 0 -1.7467"/>
   </joint>
 
   <!-- Link 2 -->
@@ -59,7 +55,7 @@
   <joint name="right_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="right_camera_link"/>
-    <origin xyz="0.0 -0.153 0" rpy="-1.5707 -0.1760 -1.5707"/>
+    <origin xyz="0.0 -0.153 0" rpy="-1.5707 0 -1.3947"/> <!---0.1760-->
   </joint>
 
 </robot>
