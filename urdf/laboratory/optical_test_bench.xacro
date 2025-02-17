@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="optical_bench">
+
+  <!-- Define some properties -->
+  <xacro:property name="blue" value="0 0 0.8 1"/>
+  <xacro:property name="black" value="0 0 0 1"/>
+  <xacro:property name="white" value="1 1 1 1"/>
+  <xacro:property name="red" value="1 0 0 1"/>
+  <xacro:property name="camera_link_radius" value="0.01"/>
+  <xacro:property name="camera_link_length" value="0.05"/>
+  <xacro:property 
+
+  <material name="blue">
+    <color rgba="${blue}"/>
+  </material>
+  <material name="black">
+    <color rgba="${black}"/>
+  </material>
+  <material name="white">
+    <color rgba="${white}"/>
+  </material>
+  <material name="red">
+    <color rgba="${red}"/>
+  </material>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <!-- <visual>
+      <origin xyz="0 0 -0.01" rpy="1.5707 0 0"/>
+      <geometry>
+        <cylinder radius="${cylinder_radius}" length="${base_link_length}"/>
+      </geometry>
+      <material name="blue"/>
+    </visual> -->
+  </link>
+
+  <!-- Link 1 -->
+  <link name="left_camera_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${camera_link_radius}" length="${camera_link_length}"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <!-- Joint connecting base_link to link_1 -->
+  <joint name="left_camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_camera_link"/>
+    <origin xyz="0 0.1543 0.0" rpy="-1.5707 0 -1.6982"/> <!---"-1.5707 0 -1.7467" -->
+  </joint>
+
+  <!-- Link 2 -->
+  <link name="right_camera_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${camera_link_radius}" length="${camera_link_length}"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <!-- Joint connecting link_1 to link_2 -->
+  <joint name="right_camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_camera_link"/>
+    <origin xyz="0.0 -0.1543 0" rpy="-1.5707 0 -1.4433"/> <!---"-1.5707 0 -1.3947" -->
+  </joint>
+
+</robot>

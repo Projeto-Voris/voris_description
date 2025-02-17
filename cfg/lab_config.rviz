@@ -3,9 +3,12 @@ Panels:
     Help Height: 70
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /TF1
+        - /TF1/Status1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 370
+    Tree Height: 795
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -34,9 +37,9 @@ Visualization Manager:
       Value: true
     - Class: rviz_default_plugins/Axes
       Enabled: true
-      Length: 0.1
+      Length: 0.10000000149011612
       Name: Axes
-      Radius: 0.001
+      Radius: 0.0010000000474974513
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -57,20 +60,40 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        SM3/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        SM3/left_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        SM3/right_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        SM4/base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        SM4/left_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        SM4/right_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -80,7 +103,7 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz_default_plugins/Image
-      Enabled: true
+      Enabled: false
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -92,9 +115,9 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /SM3/left/image_raw
-      Value: true
+      Value: false
     - Class: rviz_default_plugins/Image
-      Enabled: true
+      Enabled: false
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -106,12 +129,12 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /SM3/right/image_raw
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.5473427176475525
-        Min Value: -4.451297283172607
+        Max Value: 1.3303862810134888
+        Min Value: -1.11461341381073
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -129,7 +152,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.029999999329447746
+      Size (m): 0.0010000000474974513
       Style: Flat Squares
       Topic:
         Depth: 5
@@ -141,19 +164,65 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 1.3303862810134888
+        Min Value: -1.11461341381073
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: SM4 - Pointcloud
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.0010000000474974513
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /SM4_pointcloud
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
     - Class: rviz_default_plugins/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
-        base_link:
+        All Enabled: false
+        SM3/base_link:
           Value: true
-        left_camera_link:
+        SM3/left_camera_link:
+          Value: true
+        SM3/right_camera_link:
+          Value: false
+        SM4/base_link:
+          Value: true
+        SM4/left_camera_link:
+          Value: true
+        SM4/right_camera_link:
+          Value: false
+        base_link:
           Value: true
         map:
           Value: true
-        right_camera_link:
-          Value: true
+        sm4:
+          Value: false
+        sm4_left_camera:
+          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
@@ -162,10 +231,16 @@ Visualization Manager:
       Tree:
         map:
           base_link:
-            left_camera_link:
-              {}
-            right_camera_link:
-              {}
+            SM3/base_link:
+              SM3/left_camera_link:
+                {}
+              SM3/right_camera_link:
+                {}
+            SM4/base_link:
+              SM4/left_camera_link:
+                {}
+              SM4/right_camera_link:
+                {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -183,25 +258,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.6023207902908325
+      Distance: 3.091925859451294
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.6678014397621155
-        Y: 0.3830430805683136
-        Z: 0.08392984420061111
+        X: 0.49175137281417847
+        Y: 0.10944905877113342
+        Z: -0.41546866297721863
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.12500064074993134
+      Pitch: 1.154998779296875
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.6599977016448975
+      Yaw: 3.314999580383301
     Saved: ~
 Window Geometry:
   Displays:
@@ -209,10 +284,10 @@ Window Geometry:
   Height: 1016
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000001920000039efc0200000004fb000000100044006900730070006c006100790073010000003d000001f5000000c900fffffffb0000000a005600690065007700730000000165000000de000000a400fffffffb000000100053004d0032002f006c0065006600740100000238000000c70000002800fffffffb000000120053004d0032002f007200690067006800740100000305000000d60000002800ffffff000003450000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  SM3/left:
+  QMainWindow State: 000000ff00000000fd00000001000000000000021d0000039efc0200000004fb000000100044006900730070006c006100790073010000003d0000039e000000c900fffffffb0000000a005600690065007700730000000165000000de000000a400fffffffb000000100053004d0032002f006c0065006600740000000238000000c70000002800fffffffb000000120053004d0032002f0072006900670068007400000002c8000001130000002800ffffff000002ba0000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  SM2/left:
     collapsed: false
-  SM3/right:
+  SM2/right:
     collapsed: false
   Views:
     collapsed: false

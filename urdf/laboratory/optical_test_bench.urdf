@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot name="optical_bench">
+
+  <!-- URDF for optical table bench from laboratory-->
+
+  <!-- Define some properties -->
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+
+
+  <!-- Base Link -->
+  <link name="base_link">
+  </link>
+  <!-- SM3  -->
+    <joint name="SM3/base_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="SM3/base_link"/>
+      <origin xyz="-0.1 -0.45 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="SM3/base_link">
+      <visual>
+        <origin xyz="0 0 -0.01" rpy="1.5707 0 0"/>
+        <geometry>
+          <cylinder radius="0.01" length="0.35"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+    </link>
+
+    <!-- Link 1 -->
+    <link name="SM3/left_camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.01" length="0.05"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+
+    <!-- Joint connecting base_link to link_1 -->
+    <joint name="SM3/left_camera_joint" type="fixed">
+      <parent link="SM3/base_link"/>
+      <child link="SM3/left_camera_link"/>
+      <origin xyz="0 0.1543 0.0" rpy="-1.5707 0 -1.6982"/> <!---"-1.5707 0 -1.7467" -->
+    </joint>
+
+    <!-- Link 2 -->
+    <link name="SM3/right_camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.01" length="0.05"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+
+    <!-- Joint connecting link_1 to link_2 -->
+    <joint name="SM3/right_camera_joint" type="fixed">
+      <parent link="SM3/base_link"/>
+      <child link="SM3/right_camera_link"/>
+      <origin xyz="0.0 -0.1543 0" rpy="-1.5707 0 -1.4433"/> <!---"-1.5707 0 -1.3947" -->
+    </joint>
+
+  <!-- SM4  -->
+    <joint name="SM4/base_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="SM4/base_link"/>
+      <origin xyz="0 0.45 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="SM4/base_link">
+      <visual>
+        <origin xyz="0 0 -0.01" rpy="1.5707 0 0"/>
+        <geometry>
+          <cylinder radius="0.01" length="0.35"/>
+        </geometry>
+        <material name="blue"/>
+      </visual>
+    </link>
+
+    <!-- Link 1 -->
+    <link name="SM4/left_camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.01" length="0.05"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+
+    <!-- Joint connecting base_link to link_1 -->
+    <joint name="SM4/left_camera_joint" type="fixed">
+      <parent link="SM4/base_link"/>
+      <child link="SM4/left_camera_link"/>
+      <origin xyz="0 0.1627 0.0" rpy="-1.5707 0 -1.7129"/> <!---"-1.5707 0 -1.7467" -->
+    </joint>
+
+    <!-- Link 2 -->
+    <link name="SM4/right_camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.01" length="0.05"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+
+    <!-- Joint connecting link_1 to link_2 -->
+    <joint name="SM4/right_camera_joint" type="fixed">
+      <parent link="SM4/base_link"/>
+      <child link="SM4/right_camera_link"/>
+      <origin xyz="0.0 -0.1627 0" rpy="-1.5707 0 -1.4285"/> <!---"-1.5707 0 -1.3947" -->
+    </joint>
+
+</robot>

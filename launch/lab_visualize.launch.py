@@ -11,10 +11,10 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     voris_description_dir = get_package_share_directory('voris_description')
-    urdf_file = os.path.join(voris_description_dir, 'urdf', 'laboratory', 'sm3_laser.urdf')
+    urdf_file = os.path.join(voris_description_dir, 'urdf', 'laboratory', 'optical_test_bench.urdf')
 
     return LaunchDescription([
-        DeclareLaunchArgument(name='rvizconfig', default_value='sm3_config.rviz', description='Absolute path to rviz config file'),
+        DeclareLaunchArgument(name='rvizconfig', default_value='lab_config.rviz', description='Absolute path to rviz config file'),
 
         Node(
             package='rviz2',
