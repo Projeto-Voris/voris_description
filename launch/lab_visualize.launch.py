@@ -14,17 +14,6 @@ def generate_launch_description():
     urdf_file = os.path.join(voris_description_dir, 'urdf', 'laboratory', 'optical_test_bench.urdf')
 
     return LaunchDescription([
-        DeclareLaunchArgument(name='rvizconfig', default_value='lab_config.rviz', description='Absolute path to rviz config file'),
-
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            output='screen',
-            arguments=['-d', PathJoinSubstitution([
-                FindPackageShare('voris_description'), 'cfg', LaunchConfiguration('rvizconfig')])],
-        ),
-
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
