@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot name="sm2_mount">
+
+  <!-- URDF for optical table bench from laboratory-->
+
+  <!-- Define some properties -->
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+
+
+    <link name="SM2/base_link">
+      <visual>
+        <origin xyz="0 0 -0.01" rpy="1.5707 0 0"/>
+        <geometry>
+          <cylinder radius="0.01" length="0.35"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+    </link>
+
+    <!-- Link 1 -->
+    <link name="SM2/left_camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.01" length="0.05"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+
+    <!-- Joint connecting base_link to link_1 -->
+    <joint name="SM2/left_camera_joint" type="fixed">
+      <parent link="SM2/base_link"/>
+      <child link="SM2/left_camera_link"/>
+      <origin xyz="0 0.1 0.0" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.7467" -->
+    </joint>
+
+    <!-- Link 2 -->
+    <link name="SM2/right_camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.01" length="0.05"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+    </link>
+
+        <!-- Joint connecting link_1 to link_2 -->
+    <joint name="SM2/right_camera_joint" type="fixed">
+      <parent link="SM2/base_link"/>
+      <child link="SM2/right_camera_link"/>
+      <origin xyz="0.0 -0.1 0.0" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.3947" -->
+    </joint>
+
+
+</robot>
