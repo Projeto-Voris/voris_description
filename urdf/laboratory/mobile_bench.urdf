@@ -27,6 +27,24 @@
   <link name="base_link">
   </link>
 
+    <joint name="base_ned_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="base_link_ned"/>
+      <origin xyz="0 0 0" rpy="3.14"/>
+    </joint>
+    <joint name="base_cam_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="base_link_cam"/>
+      <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+    </joint>
+    
+    
+    <link name="base_link_ned">
+    </link>
+       
+    <link name="base_link_cam">
+    </link>
+
   <!-- SM4/SM3 base  -->
     <joint name="left_base_joint" type="fixed">
       <parent link="base_link"/>
