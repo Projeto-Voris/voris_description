@@ -32,4 +32,13 @@ def generate_launch_description():
                  '--child-frame-id', 'base_link'],
             output='screen',
         ),
+
+        ExecuteProcess(
+            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+                 '--roll', '-1.5707',
+                 '--yaw', '-1.5707',
+                 '--frame-id', 'map',
+                 '--child-frame-id', 'orbslam3'],
+            output='screen',
+        ),
     ])
