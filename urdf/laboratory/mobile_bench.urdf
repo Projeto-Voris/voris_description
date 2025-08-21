@@ -25,13 +25,13 @@
 
   <!-- Base Link -->
   <link name="base_link">
-  <!-- <origin xyz="0 0 0.1" rpy="0 0 0"/>
-  <visual>
-    <geometry>
-      <box size="0.25 0.565 0.01"/>
-    </geometry>
-    <material name="black"/>
-  </visual> -->
+      <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://voris_description/urdf/meshes/lab_bench.dae" scale="1 1 1"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
   </link>
 
     <joint name="base_ned_joint" type="fixed">
@@ -39,6 +39,7 @@
       <child link="base_link_ned"/>
       <origin xyz="0 0 0" rpy="3.14 0 0"/>
     </joint>
+
     <joint name="base_cam_joint" type="fixed">
       <parent link="base_link"/>
       <child link="base_link_cam"/>
@@ -46,66 +47,34 @@
     </joint>
     
     
-    <link name="base_link_ned">
-    </link>
+    <link name="base_link_ned"/>
        
-    <link name="base_link_cam">
-    </link>
-
+    <link name="base_link_cam"/>
+  <!-- Navigation position  -->
+  <joint name="base_nav_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="navigation_link"/>
+    <origin xyz="0.08 0 0.064" rpy="0 0 0"/> <!-- 64 mm from base to surface below + -->
+  </joint>
+  <link name="navigation_link"/>
   <!-- SM4/SM3 base  -->
-    <joint name="left_base_joint" type="fixed">
+    <joint name="Active/base_link_joint" type="fixed">
       <parent link="base_link"/>
       <child link="Active/base_link"/>
-      <origin xyz="-0 0 0.305" rpy="0 0 0"/>
+      <origin xyz="-0 0 0.297" rpy="0 0 0"/> <!-- z distance = 277 mm + 10 mm of cylinder + 10 mm "base"-->
     </joint>
 
     <link name="Active/base_link">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <box size="0.045 0.52 0.045"/>
-        </geometry>
-        <material name="black"/>
-      </visual>
     </link>
 
-        <joint name="base_left_joint" type="fixed">
-      <parent link="Active/base_link"/>
-      <child link="base_left_link"/>
-      <origin xyz="0 0.2825 -0.14" rpy="0 0 0"/>
-    </joint>
-    <joint name="base_right_joint" type="fixed">
-      <parent link="Active/base_link"/>
-      <child link="base_right_link"/>
-      <origin xyz="0 -0.2825 -0.14" rpy="0 0 0"/>
-    </joint>
-
-    <link name="base_left_link">
-      <visual>
-        <origin xyz="0 0 0" rpy="1.5707 0 0"/>
-        <geometry>
-          <box size="0.045 0.34 0.045"/>
-        </geometry>
-        <material name="black"/>
-      </visual>
-    </link>
-
-    <link name="base_right_link">
-      <visual>
-        <origin xyz="0 0 0" rpy="1.5707 0 0"/>
-        <geometry>
-          <box size="0.045 0.34 0.045"/>
-        </geometry>
-        <material name="black"/>
-      </visual>
-    </link>
 
     <!-- Active STEREO-->
     <!-- camera left -->
         <link name="Active/left_camera_link">
         <visual>
+            <!-- <origin xyz="0 -0.01 0" rpy="0 0 0"/> -->
             <geometry>
-            <cylinder radius="0.01" length="0.05"/>
+              <cylinder radius="0.01" length="0.05"/>
             </geometry>
             <material name="blue"/>
         </visual>
@@ -113,80 +82,41 @@
         <!-- camera right -->
         <link name="Active/right_camera_link">
         <visual>
+            <!-- <origin xyz="0 -0.01 0" rpy="0 0 0"/> -->
             <geometry>
-            <cylinder radius="0.01" length="0.05"/>
+              <cylinder radius="0.01" length="0.05"/>
             </geometry>
-            <material name="blue"/>
+            <material name="blue"/>" 
         </visual>
         </link>
 
         <joint name="Active/left_camera_joint" type="fixed">
             <parent link="Active/base_link"/>
             <child link="Active/left_camera_link"/>
-            <origin xyz="0 0.1863 0.0325" rpy="-1.5707 0 -1.7557"/> <!---"-1.5707 0 -1.7467" -->
+            <origin xyz="0 0.1863 0.0" rpy="-1.5707 0 -1.7557"/> <!---"-1.5707 0 -1.7467" -->
         </joint>
 
         <joint name="Active/right_camera_joint" type="fixed">
             <parent link="Active/base_link"/>
             <child link="Active/right_camera_link"/>
-            <origin xyz="0.0 -0.1863 0.0325" rpy="-1.5707 0 -1.3857"/> <!---"-1.5707 0 -1.3947" -->
+            <origin xyz="0.0 -0.1863 0.0" rpy="-1.5707 0 -1.3857"/> <!---"-1.5707 0 -1.3947" -->
         </joint>
-
-    <!-- SM4 Projector -->
-        <link name='Active/SM4/projector_link'>
-        <visual>
-        <origin xyz="0 0 0" rpy="1.57 0 0"/> <!---"-1.5707 0 -1.7467" -->
-            <geometry>
-            <box size="0.15 0.15 0.03"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        </link>
-        
-        <joint name="Active/SM4/projector_joint" type="fixed">
-            <parent link="Active/base_link"/>
-            <child link="Active/SM4/projector_link"/>
-            <origin xyz="0.0 0.0 -0.0475" rpy="-1.5 0 -1.5707"/> <!---"-1.5707 0 -1.7467" -->
-        </joint>
-
-    <!-- SM3 Laser -->
-        <link name='Active/SM3/laser_link'>
-        <visual>
-        <origin xyz="0 0.01 0" rpy="1.57 0 0"/> <!---"-1.5707 0 -1.7467" -->
-            <geometry>
-            <box size="0.045 0.045 0.07"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        </link>
-
-        <joint name="Active/SM3/laser_joint" type="fixed">
-        <parent link="Active/base_link"/>
-        <child link="Active/SM3/laser_link"/>
-        <origin xyz="0.0 0.0 0.0675" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.7467" -->
-        </joint>
-
     
     <!-- Passive stereo system -->
         <joint name='Passive/base_joint' type="fixed">
-        <parent link="base_link"/>
+        <parent link="Active/base_link"/>
         <child link="Passive/base_link"/>
-        <origin xyz="0 0 0.387" rpy="0 0 0"/>
+        <origin xyz="0 0 0.064" rpy="0 0 0"/>
         </joint>
 
         <link name="Passive/base_link">
-        <visual>
-            <geometry>
-            <box size="0.035 0.220 0.005"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
         </link>
 
         <link name="Passive/left_camera_link">
         <visual>
+            <!-- <origin xyz="0 -0.02 0" rpy="0 0 0"/> -->
             <geometry>
-            <cylinder radius="0.01" length="0.05"/>
+              <cylinder radius="0.01" length="0.05"/>
             </geometry>
             <material name="green"/>
         </visual>
@@ -195,13 +125,14 @@
         <joint name="Passive/left_camera_joint" type="fixed">
         <parent link="Passive/base_link"/>
         <child link="Passive/left_camera_link"/>
-        <origin xyz="0 0.1 0.0125" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.7467" -->
+        <origin xyz="0 0.1 0" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.7467" -->
         </joint>
 
         <link name="Passive/right_camera_link">
         <visual>
+            <!-- <origin xyz="0 -0.02 0" rpy="0 0 0"/> -->
             <geometry>
-            <cylinder radius="0.01" length="0.05"/>
+              <cylinder radius="0.01" length="0.05"/>
             </geometry>
             <material name="green"/>
         </visual>
@@ -210,6 +141,7 @@
         <joint name="Passive/right_camera_joint" type="fixed">
         <parent link="Passive/base_link"/>
         <child link="Passive/right_camera_link"/>
-        <origin xyz="0.0 -0.1 0.0125" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.3947" -->
+        <origin xyz="0.0 -0.1 0" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.3947" -->
         </joint>
+
 </robot>
