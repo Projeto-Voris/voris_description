@@ -30,12 +30,10 @@
 
   <!-- Link 1 -->
   <link name="Passive/left_camera_link">
-    <!-- <visual>
-      <geometry>
-        <cylinder radius="0.01" length="0.02"/>
-      </geometry>
-      <material name="black"/>
-    </visual> -->
+  </link>
+
+  <!-- Link 1 -->
+  <link name="Passive/left_camera_enu_link">
   </link>
 
   <!-- Joint connecting base_link to link_1 -->
@@ -45,14 +43,20 @@
     <origin xyz="0.19 0.075 0.201" rpy="-1.5707 0 -1.5707"/>
   </joint>
 
+    <!-- Joint connecting base_link to link_1 -->
+  <joint name="left_camera_enu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="Passive/left_camera_enu_link"/>
+    <origin xyz="0.19 0.075 0.201" rpy="0 0 0"/>
+  </joint>
+
+
   <!-- Link 2 -->
   <link name="Passive/right_camera_link">
-    <!-- <visual>
-      <geometry>
-        <cylinder radius="0.01" length="0.02"/>
-      </geometry>
-      <material name="black"/>
-    </visual> -->
+  </link>
+
+  <!-- Link 2 -->
+  <link name="Passive/right_camera_enu_link">
   </link>
 
   <!-- Joint connecting link_1 to link_2 -->
@@ -61,5 +65,13 @@
     <child link="Passive/right_camera_link"/>
     <origin xyz="0.19 -0.075 0.201" rpy="-1.5707 0 -1.5707"/>
   </joint>
+
+    <!-- Joint connecting link_1 to link_2 -->
+  <joint name="right_camera_enu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="Passive/right_camera_enu_link"/>
+    <origin xyz="0.19 -0.075 0.201" rpy="0 0 0"/>
+  </joint>
+
 
 </robot>

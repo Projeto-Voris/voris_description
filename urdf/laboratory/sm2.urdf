@@ -39,6 +39,8 @@
         <material name="black"/>
       </visual>
     </link>
+        <link name="SM2/left_camera_enu_link">
+    </link>
 
     <!-- Joint connecting base_link to link_1 -->
     <joint name="SM2/left_camera_joint" type="fixed">
@@ -46,7 +48,12 @@
       <child link="SM2/left_camera_link"/>
       <origin xyz="0 0.1 0.0" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.7467" -->
     </joint>
-
+    
+    <joint name="SM2/left_camera_enu_joint" type="fixed">
+      <parent link="SM2/base_link"/>
+      <child link="SM2/left_camera_enu_link"/>
+      <origin xyz="0 0.1 0.0" rpy="0 0 0"/> <!---"-1.5707 0 -1.7467" -->
+    </joint>
     <!-- Link 2 -->
     <link name="SM2/right_camera_link">
       <visual>
@@ -57,11 +64,20 @@
       </visual>
     </link>
 
+    <link name="SM2/right_camera_enu_link">
+    </link>
+
         <!-- Joint connecting link_1 to link_2 -->
     <joint name="SM2/right_camera_joint" type="fixed">
       <parent link="SM2/base_link"/>
       <child link="SM2/right_camera_link"/>
       <origin xyz="0.0 -0.1 0.0" rpy="-1.5707 0 -1.5707"/> <!---"-1.5707 0 -1.3947" -->
+    </joint>
+
+    <joint name="SM2/right_camera_enu_joint" type="fixed">
+      <parent link="SM2/base_link"/>
+      <child link="SM2/right_camera_enu_link"/>
+      <origin xyz="0.0 -0.1 0.0" rpy="0 0 0"/> <!---"-1.5707 0 -1.3947" -->
     </joint>
 
 
