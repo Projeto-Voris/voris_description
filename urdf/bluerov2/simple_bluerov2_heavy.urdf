@@ -40,14 +40,14 @@
   <joint name="left_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/left_camera_link"/>
-    <origin xyz="0.19 0.075 0.201" rpy="-1.5707 0 -1.5707"/>
+    <origin xyz="0.216 -0.108 -0.2446" rpy="-1.5707 0 -1.5707"/>
   </joint>
 
     <!-- Joint connecting base_link to link_1 -->
   <joint name="left_camera_enu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/left_camera_enu_link"/>
-    <origin xyz="0.19 0.075 0.201" rpy="0 0 0"/>
+    <origin xyz="0.216 0.108 -0.2446" rpy="0 0 0"/>
   </joint>
 
 
@@ -63,15 +63,33 @@
   <joint name="right_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/right_camera_link"/>
-    <origin xyz="0.19 -0.075 0.201" rpy="-1.5707 0 -1.5707"/>
+    <origin xyz="0.216 -0.108 -0.2446" rpy="-1.5707 0 -1.5707"/>
   </joint>
 
     <!-- Joint connecting link_1 to link_2 -->
   <joint name="right_camera_enu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/right_camera_enu_link"/>
-    <origin xyz="0.19 -0.075 0.201" rpy="0 0 0"/>
+    <origin xyz="0.216 -0.108 -0.2446" rpy="0 0 0"/>
   </joint>
 
+<!-- Joint connecting link_1 to link_2 -->
+  <joint name="ping360_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="ping360_link"/>
+    <origin xyz="0.0 0.0 0.07" rpy="0 0 0"/>
+  </joint>
 
+<link name="ping360_link">
+  </link>
+
+  <!-- Joint connecting link_1 to link_2 -->
+  <joint name="stim3600_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="stim3600_link"/>
+    <origin xyz="0.216 0.0 -0.2446" rpy="0 0 0"/>
+  </joint>
+
+<link name="stim3600_link">
+  </link>
 </robot>
