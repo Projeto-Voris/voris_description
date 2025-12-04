@@ -28,6 +28,16 @@
     </visual>
   </link>
 
+  <!-- Joint connecting base_link to link_1 -->
+  <joint name="fpv_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="bluerov2_fpv_link"/>
+    <origin xyz="0.1 0 0" rpy="-1.5707 0 -1.5707"/>
+  </joint>
+
+  <link name="bluerov2_fpv_link">
+  </link>
+
   <!-- Link 1 -->
   <link name="Passive/left_camera_link">
   </link>
@@ -42,6 +52,8 @@
     <child link="Passive/left_camera_link"/>
     <origin xyz="0.216 -0.108 -0.2446" rpy="-1.5707 0 -1.5707"/>
   </joint>
+
+  
 
     <!-- Joint connecting base_link to link_1 -->
   <joint name="left_camera_enu_joint" type="fixed">
@@ -90,6 +102,6 @@
     <origin xyz="0.216 0.0 -0.2446" rpy="0 0 0"/>
   </joint>
 
-<link name="stim3600_link">
+  <link name="stim3600_link">
   </link>
 </robot>
