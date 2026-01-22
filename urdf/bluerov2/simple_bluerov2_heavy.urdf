@@ -32,7 +32,7 @@
   <joint name="fpv_joint" type="fixed">
     <parent link="base_link"/>
     <child link="bluerov2_fpv_link"/>
-    <origin xyz="0.1 0 0" rpy="-1.5707 0 -1.5707"/>
+    <origin xyz="0.1 0 0" rpy="-1.5668 0.003 -1.666"/>
   </joint>
 
   <link name="bluerov2_fpv_link">
@@ -50,7 +50,7 @@
   <joint name="left_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/left_camera_link"/>
-    <origin xyz="0.216 -0.108 -0.2446" rpy="-1.5707 0 -1.5707"/>
+    <origin xyz="0.218 0.10728 -0.284" rpy="-1.5707 0 -1.5707"/>
   </joint>
 
   
@@ -59,7 +59,7 @@
   <joint name="left_camera_enu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/left_camera_enu_link"/>
-    <origin xyz="0.216 0.108 -0.2446" rpy="0 0 0"/>
+    <origin xyz="0.218 0.10728 -0.284" rpy="0 0 0"/>
   </joint>
 
 
@@ -75,15 +75,16 @@
   <joint name="right_camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/right_camera_link"/>
-    <origin xyz="0.216 -0.108 -0.2446" rpy="-1.5707 0 -1.5707"/>
+    <origin xyz="0.195 -0.10728 -0.284" rpy="-1.5707 0 -1.5707"/>
   </joint>
 
     <!-- Joint connecting link_1 to link_2 -->
   <joint name="right_camera_enu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="Passive/right_camera_enu_link"/>
-    <origin xyz="0.216 -0.108 -0.2446" rpy="0 0 0"/>
+    <origin xyz="0.195 -0.10728 -0.284" rpy="0 0 0"/>
   </joint>
+
 
 <!-- Joint connecting link_1 to link_2 -->
   <joint name="ping360_joint" type="fixed">
