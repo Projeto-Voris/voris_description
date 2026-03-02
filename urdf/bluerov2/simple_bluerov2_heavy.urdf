@@ -89,11 +89,11 @@
 <!-- Joint connecting link_1 to link_2 -->
   <joint name="ping360_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="ping360_link"/>
-    <origin xyz="0.0 0.0 0.07" rpy="0 0 0"/>
+    <child link="sonar_frame"/>
+    <origin xyz="0.0 0.0 0.07" rpy="3.14 0 0"/>
   </joint>
 
-<link name="ping360_link">
+<link name="sonar_frame">
   </link>
 
   <!-- Joint connecting link_1 to link_2 -->

@@ -17,7 +17,19 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(name='gui', default_value='true', choices=['true', 'false'],
                               description='Enable joint_state_publisher_gui'),
+        DeclareLaunchArgument(name='rvizconfig', default_value='bluerov_config.rviz',
+                              description='Absolute path to rviz config file'),
 
+
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen',
+            arguments=['-d', PathJoinSubstitution([
+                FindPackageShare('voris_description'), 'cfg', LaunchConfiguration('rvizconfig')])],
+            condition=IfCondition(LaunchConfiguration('gui'))
+        ),
 
         Node(
             package='robot_state_publisher',
@@ -27,14 +39,14 @@ def generate_launch_description():
         ),
 
         ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+            cmd=['/opt/ros/jazzy/lib/tf2_ros/static_transform_publisher',
                  '--frame-id', 'map',
                  '--child-frame-id', 'base_link'],
             output='screen',
         ),
 
         ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+            cmd=['/opt/ros/jazzy/lib/tf2_ros/static_transform_publisher',
                  '--roll', '-1.5707',
                  '--yaw', '-1.5707',
                  '--frame-id', 'map',
