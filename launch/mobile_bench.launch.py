@@ -28,25 +28,25 @@ def generate_launch_description():
             output='screen',
         ),
 
-        ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
-                 '--frame-id', 'map',
-                 '--child-frame-id', 'odom'],
-            output='screen',
-        ),
-        ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
-                 '--frame-id', 'map',
-                 '--roll', '3.1415',
-                 '--child-frame-id', 'odom_ned'],
-            output='screen',
-        ),
-        ExecuteProcess(
-            cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
-                 '--roll', '-1.5707',
-                 '--yaw', '-1.5707',
-                 '--frame-id', 'map',
-                 '--child-frame-id', 'orbslam3'],
-            output='screen',
-        )
+        # ExecuteProcess(
+        #     cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+        #          '--frame-id', 'map',
+        #          '--child-frame-id', 'odom'],
+        #     output='screen',
+        # ),
+        # ExecuteProcess(
+        #     cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+        #          '--frame-id', 'map',
+        #          '--roll', '3.1415',
+        #          '--child-frame-id', 'odom_ned'],
+        #     output='screen',
+        # ),
+        # ExecuteProcess(
+        #     cmd=['/opt/ros/humble/lib/tf2_ros/static_transform_publisher',
+        #          '--roll', '-1.5707',
+        #          '--yaw', '-1.5707',
+        #          '--frame-id', 'map',
+        #          '--child-frame-id', 'orbslam3'],
+        #     output='screen',
+        # )
     ])

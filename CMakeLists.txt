@@ -18,13 +18,12 @@ find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 
-include_directories(include)
-
-
+# include_directories(include)
 
 # add_executable(vision_odom src/vision_odom.cpp)
 # target_include_directories(vision_odom PRIVATE include)
 # ament_target_dependencies(vision_odom rclcpp tf2_ros geometry_msgs nav_msgs)
+
 
 if (BUILD_TESTING)
     find_package(ament_lint_auto REQUIRED)

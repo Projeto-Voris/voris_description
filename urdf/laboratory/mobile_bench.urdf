@@ -106,7 +106,7 @@
         <joint name='Passive/base_joint' type="fixed">
         <parent link="Active/base_link"/>
         <child link="Passive/base_link"/>
-        <origin xyz="0.08 0 0.064" rpy="0 0 0"/>
+        <origin xyz="0.008 0 0.064" rpy="0 0 0"/>
         </joint>
 
         <link name="Passive/base_link">
