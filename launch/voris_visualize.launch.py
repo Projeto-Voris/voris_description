@@ -13,9 +13,9 @@ def generate_launch_description():
     voris_description_dir = get_package_share_directory('voris_description')
     urdf_file = os.path.join(voris_description_dir, 'urdf', 'bluerov2', 'bluerov2_heavy.urdf')
     urdf_file_simple = os.path.join(voris_description_dir, 'urdf', 'bluerov2', 'simple_bluerov2_heavy.urdf')
-
+    # print(f"Using URDF file: {urdf_file_simple}")
     return LaunchDescription([
-        DeclareLaunchArgument(name='gui', default_value='true', choices=['true', 'false'],
+        DeclareLaunchArgument(name='gui', default_value='false', choices=['true', 'false'],
                               description='Enable joint_state_publisher_gui'),
         DeclareLaunchArgument(name='rvizconfig', default_value='bluerov_config.rviz',
                               description='Absolute path to rviz config file'),
@@ -43,14 +43,5 @@ def generate_launch_description():
                  '--frame-id', 'map',
                  '--child-frame-id', 'base_link'],
             output='screen',
-        ),
-
-        ExecuteProcess(
-            cmd=['/opt/ros/jazzy/lib/tf2_ros/static_transform_publisher',
-                 '--roll', '-1.5707',
-                 '--yaw', '-1.5707',
-                 '--frame-id', 'map',
-                 '--child-frame-id', 'orbslam3'],
-            output='screen',
-        ),
+        )
     ])
