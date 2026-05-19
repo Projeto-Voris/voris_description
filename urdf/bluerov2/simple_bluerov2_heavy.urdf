@@ -87,10 +87,10 @@
 
 
 <!-- Joint connecting link_1 to link_2 -->
-  <joint name="ping360_joint" type="fixed">
+  <joint name="sonar3d_joint" type="fixed">
     <parent link="base_link"/>
     <child link="sonar_link"/>
-    <origin xyz="0.0 0.0 0.07" rpy="3.14 0 0"/>
+    <origin xyz="0.13375 0.0 0.1133" rpy="3.14 0 0"/>
   </joint>
 
 <link name="sonar_link">
@@ -105,4 +105,13 @@
 
   <link name="stim3600_link">
   </link>
+
+  <link name="dvl_link">
+  </link>
+
+  <joint name="dvl_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="dvl_link"/>
+    <origin xyz="-0.075 0.0 -0.3213" rpy="3.14 0 0"/>
+  </joint>
 </robot>
